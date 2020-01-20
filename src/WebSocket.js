@@ -4,11 +4,6 @@
 
 let WebSocket
 
-try {
-  WebSocket = require('ws')
-} catch (e) {
-  // this is browser
-  window.WebSocket.prototype.removeAllListeners = () => { }
-}
+window.WebSocket.prototype.removeAllListeners = () => { }
 
 module.exports = WebSocket || window.WebSocket
